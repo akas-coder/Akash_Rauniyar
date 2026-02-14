@@ -2,8 +2,16 @@ import deloitteCert from "../assets/certificates/deloitte-job-simulation.pdf";
 import jpmorganCert from "../assets/certificates/jpmorgan-job-simulation.pdf";
 import simplilearnCert from "../assets/certificates/simplilearn-frontend.pdf";
 import udemyCert from "../assets/certificates/udemy-springboot.pdf";
+import sihCert from "../assets/certificates/Sih certificate.jpeg";
 
 export const certifications = [
+  {
+    title: "Smart India Hackathon (Internal) 2025 – Shortlisted",
+    issuer: "Institution’s Innovation Council (IIC-ABES), ABES Engineering College",
+    date: "September 2025",
+    description: "Shortlisted at college level (Team: Smart Civic_abesec)",
+    link: sihCert,
+  },
   {
     title: "AWS Academy Graduate – Cloud Foundations",
     issuer: "AWS Academy",
