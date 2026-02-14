@@ -5,6 +5,11 @@ export const projects = [
     github: "https://github.com/akas-coder/chat-application",
   },
   {
+    title: "ECO-BAZAAR-X – Full-Stack E-Commerce Platform",
+    desc: "Scalable eco-focused e-commerce platform built with React (Vite), Spring Boot, and MySQL. Features: JWT-based authentication, dynamic product filtering, cart management, RESTful API integration, and modular monorepo architecture with optimized API response handling.",
+    github: "https://github.com/akas-coder/ECO-BAZAAR-X",
+  },
+  {
     title: "Go Ride – Bus Pass Automation System",
     desc: "Spring Boot application automating bus pass issuance, renewal, and verification with Thymeleaf templating, MySQL database, and secure backend validation.",
     github: "https://github.com/akas-coder/Go-Ride",
