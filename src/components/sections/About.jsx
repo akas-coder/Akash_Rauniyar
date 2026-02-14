@@ -19,7 +19,7 @@ export default function About() {
 
         {/* Description */}
         <p className="text-neutral-600 dark:text-neutral-400 max-w-3xl">
-          I come from a technical background with hands-on experience in data
+          I come from 666666a technical background with hands-on experience in data
           structures, backend development, and modern frontend technologies. I
           focus on writing clean, understandable code and building practical
           applications that solve real problems.
