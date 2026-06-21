@@ -127,6 +127,17 @@ export default function Navbar() {
             </div>
 
             <a
+              href="/resume/Better.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                px-4 py-2.5 rounded-none font-bold text-xs uppercase tracking-widest border border-white/20 text-neutral-300 hover:text-white hover:border-white transition-all duration-300
+              "
+            >
+              Resume
+            </a>
+
+            <a
               href="#contact"
               className="
                 px-4 py-2.5 rounded-none font-bold text-xs uppercase tracking-widest border border-white text-white
@@ -210,6 +221,16 @@ export default function Navbar() {
                     <Mail size={16} />
                   </a>
                 </div>
+
+                <a
+                  href="/resume/Better.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="px-4 py-2 border border-white/20 text-center text-xs font-bold uppercase text-neutral-300 hover:text-white hover:border-white transition"
+                >
+                  Resume
+                </a>
 
                 <a
                   href="#contact"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import headerImg from "../../assets/img/header-img.svg";
 import ContactOptions from "../ui/ContactOptions";
 
@@ -78,16 +78,30 @@ export default function Hero() {
               I am a third-year engineering student with a strong technical foundation in problem solving, data structures, and full-stack development. I enjoy building scalable web applications that focus on clean architecture, performance, and real-world usability.
             </p>
 
-            <button
-              onClick={() => setOpenContact(true)}
-              className="
-                mt-10 inline-flex items-center gap-2 font-bold text-sm md:text-base text-white uppercase tracking-widest group
-                hover:text-indigo-400 transition-colors duration-200
-              "
-            >
-              Let’s Connect 
-              <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-200 text-indigo-500" />
-            </button>
+            <div className="mt-10 flex flex-wrap gap-6 items-center">
+              <button
+                onClick={() => setOpenContact(true)}
+                className="
+                  inline-flex items-center gap-2 font-bold text-sm md:text-base text-white uppercase tracking-widest group
+                  hover:text-indigo-400 transition-colors duration-200
+                "
+              >
+                Let’s Connect 
+                <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-200 text-indigo-500" />
+              </button>
+
+              <a
+                href="/resume/Better.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  inline-flex items-center gap-2.5 px-5 py-3 border border-white/20 bg-white/5 hover:border-indigo-500/50 hover:bg-white/[0.08] backdrop-blur-md rounded-none font-bold text-xs uppercase tracking-widest text-neutral-300 hover:text-white transition-all duration-300 shadow-sm
+                "
+              >
+                <FileText size={15} className="text-indigo-400" />
+                Resume / CV
+              </a>
+            </div>
           </motion.div>
 
           {/* ILLUSTRATION COLUMN */}
