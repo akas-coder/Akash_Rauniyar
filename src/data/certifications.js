@@ -2,8 +2,22 @@ import deloitteCert from "../assets/certificates/deloitte-job-simulation.pdf";
 import jpmorganCert from "../assets/certificates/jpmorgan-job-simulation.pdf";
 import simplilearnCert from "../assets/certificates/simplilearn-frontend.pdf";
 import udemyCert from "../assets/certificates/udemy-springboot.pdf";
+import dbmsCert from "../assets/certificates/DBMS Cert by INFOSYS.pdf";
+import tcsCert from "../assets/certificates/TCS ion SoftSkill certificate.pdf";
 
 export const certifications = [
+  {
+    title: "Career Edge – Soft Skills",
+    issuer: "TCS iON",
+    date: "June 2026",
+    link: tcsCert,
+  },
+  {
+    title: "Introduction to Database Management Systems (DBMS)",
+    issuer: "Infosys Springboard",
+    date: "May 2026",
+    link: dbmsCert,
+  },
   {
     title: "AWS Academy Graduate – Cloud Foundations",
     issuer: "AWS Academy",

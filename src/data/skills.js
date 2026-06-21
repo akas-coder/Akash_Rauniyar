@@ -1,13 +1,19 @@
-export const skills = [
-  "Java",
-  "Data Structures & Algorithms",
-  "Spring Boot",
-  "React.js",
-  "JavaScript (basic)",
-  "HTML & CSS",
-  "JSP & Servlets",
-  "MySQL",
-  "REST APIs",
-  "Git & GitHub",
-  "Problem Solving"
+export const skillsData = [
+  {
+    category: "Languages",
+    items: ["Java", "JavaScript", "HTML & CSS"]
+  },
+  {
+    category: "Frameworks & Backend",
+    items: ["Spring Boot", "React.js", "JSP & Servlets", "REST APIs", "JWT", "WebSockets"]
+  },
+  {
+    category: "Databases & Tools",
+    items: ["MySQL", "Git & GitHub"]
+  },
+  {
+    category: "Core Concepts",
+    items: ["Data Structures & Algorithms", "Problem Solving"]
+  }
 ];
+

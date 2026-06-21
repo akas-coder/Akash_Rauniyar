@@ -1,14 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* RESET */
+/* RESET & LAYOUT */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
 body {
-  @apply bg-neutral-950 text-white;
+  font-family: 'Inter', sans-serif;
+  background-color: #06060c;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* SPACE & STARRY BACKGROUNDS */
+.space-bg {
+  position: relative;
+  background-color: #06060c;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 40%),
+    radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.2px 1.2px at 40px 70px, rgba(255,255,255,0.6), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,0.4), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 110px 80px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 150px 180px, rgba(255,255,255,0.8), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 100% 100%, 100% 100%, 200px 200px, 200px 200px, 250px 250px, 250px 250px, 300px 300px, 300px 300px;
+}
+
+/* NEBULA GLOW BLUR SHAPES */
+.glow-nebula-left {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: -250px;
+  top: 15%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(168, 85, 247, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-nebula-right {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  right: -300px;
+  bottom: 10%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* FLOAT ANIMATION FOR SVGS */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 4.5s ease-in-out infinite;
+}
+
+/* SOCIAL CIRCLE ICON BUTTONS */
+.social-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.social-icon-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.social-icon-btn:hover::before {
+  transform: scale(1);
+}
+
+.social-icon-btn:hover {
+  color: #121212 !important;
+}
+
+/* PREMIUM PROJECT CARD OVERLAYS */
+.project-img-box {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-img-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(168, 85, 247, 0.9));
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.project-img-box:hover::before {
+  opacity: 1;
+}
+
+.project-txt-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 80%;
+  text-align: center;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+  z-index: 2;
+}
+
+.project-img-box:hover .project-txt-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* CUSTOM thin SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06060c;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.4);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.7);
 }

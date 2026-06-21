@@ -1,63 +1,107 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import headerImg from "../../assets/img/header-img.svg";
 import ContactOptions from "../ui/ContactOptions";
 
 export default function Hero() {
+  const [loopNum, setLoopNum] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+  const [delta, setDelta] = useState(150);
   const [openContact, setOpenContact] = useState(false);
+  
+  useEffect(() => {
+    const toRotate = ["Web Developer", "Spring Boot Engineer", "React Developer"];
+    const period = 2000;
+
+    const tick = () => {
+      let i = loopNum % toRotate.length;
+      let fullText = toRotate[i];
+      let updatedText = isDeleting
+        ? fullText.substring(0, text.length - 1)
+        : fullText.substring(0, text.length + 1);
+
+      setText(updatedText);
+
+      if (isDeleting) {
+        setDelta(50); // Speed up when deleting
+      }
+
+      if (!isDeleting && updatedText === fullText) {
+        setIsDeleting(true);
+        setDelta(period);
+      } else if (isDeleting && updatedText === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setDelta(120);
+      }
+    };
+
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => clearInterval(ticker);
+  }, [text, delta, isDeleting, loopNum]);
 
   return (
     <>
-      <section className="min-h-[calc(100vh-4rem)] flex items-center px-6">
-        <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-6 items-center">
+      <section id="home" className="relative min-h-screen flex items-center px-6 pt-28 pb-16 overflow-hidden">
+        {/* Glow Nebula background helper */}
+        <div className="glow-nebula-left" />
 
-          {/* TEXT CONTENT */}
+        <div className="max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-8 items-center relative z-10">
+          
+          {/* TEXT INFO COLUMN */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="md:pr-4"
+            className="md:col-span-7 text-left flex flex-col items-start"
           >
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-              Hi, I’m Akash <br /> I Build Web Applications
+            {/* Greeting Tag */}
+            <span className="inline-block px-5 py-2.5 rounded-none font-bold text-xs uppercase tracking-widest border border-white/30 bg-white/5 backdrop-blur-md mb-6">
+              Welcome to my portfolio
+            </span>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white font-display">
+              Hi! I'm Akash,{" "}
+              <br />
+              <span className="inline-block min-h-[50px] sm:min-h-[60px] text-indigo-400 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                {text}
+                <span className="animate-pulse ml-1 text-white">|</span>
+              </span>
             </h1>
 
-            <p className="mt-6 text-neutral-400 max-w-xl">
-              A third-year engineering student with a strong technical
-              foundation in problem solving, data structures, and full-stack
-              development. I enjoy building scalable web applications that focus
-              on clean architecture, performance, and real-world usability.
+            <p className="mt-6 text-base sm:text-lg text-neutral-400 leading-relaxed max-w-xl">
+              I am a third-year engineering student with a strong technical foundation in problem solving, data structures, and full-stack development. I enjoy building scalable web applications that focus on clean architecture, performance, and real-world usability.
             </p>
 
-            <div className="flex gap-4 mt-8">
-              <a
-                href="#projects"
-                className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 transition"
-              >
-                View My Work
-              </a>
-
-              {/* CONTACT BUTTON */}
-              <button
-                onClick={() => setOpenContact(true)}
-                className="px-6 py-3 rounded-xl border border-neutral-700 hover:border-indigo-500 transition"
-              >
-                Contact Me
-              </button>
-            </div>
+            <button
+              onClick={() => setOpenContact(true)}
+              className="
+                mt-10 inline-flex items-center gap-2 font-bold text-sm md:text-base text-white uppercase tracking-widest group
+                hover:text-indigo-400 transition-colors duration-200
+              "
+            >
+              Let’s Connect 
+              <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-200 text-indigo-500" />
+            </button>
           </motion.div>
 
-          {/* IMAGE */}
+          {/* ILLUSTRATION COLUMN */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center md:justify-end"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:col-span-5 flex justify-center items-center"
           >
-            <div className="w-72 h-72 md:w-[22rem] md:h-[22rem] rounded-2xl border border-neutral-800 bg-neutral-900 flex items-center justify-center">
+            <div className="w-full max-w-[380px] sm:max-w-[420px] select-none">
               <img
-                src="/profile.jpeg"
-                alt="Akash profile"
-                className="w-full h-full object-contain"
+                src={headerImg}
+                alt="Floating Space Astronaut"
+                className="float-animation w-full h-auto drop-shadow-[0_20px_50px_rgba(99,102,241,0.25)]"
               />
             </div>
           </motion.div>
