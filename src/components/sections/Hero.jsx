@@ -75,7 +75,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-neutral-400 leading-relaxed max-w-xl">
-              I am a third-year engineering student with a strong technical foundation in problem solving, data structures, and full-stack development. I enjoy building scalable web applications that focus on clean architecture, performance, and real-world usability.
+              I am a final-year engineering student with a strong technical foundation in problem solving, data structures, and full-stack development. I enjoy building scalable web applications that focus on clean architecture, performance, and real-world usability.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-6 items-center">
